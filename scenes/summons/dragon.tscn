@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://pankmv5l5j61"]
+[gd_scene load_steps=7 format=3 uid="uid://pankmv5l5j61"]
 
 [ext_resource type="Script" path="res://scenes/summons/dragon.gd" id="1_jwfkp"]
 [ext_resource type="Texture2D" uid="uid://n1v0tgj2qaq" path="res://assets/art/tokens/dragon.png" id="2_3losi"]
+[ext_resource type="PackedScene" uid="uid://c58fuamx0hiwi" path="res://scenes/effects/fireball.tscn" id="2_jsmfs"]
 [ext_resource type="Texture2D" uid="uid://h1qv4c07lkm2" path="res://assets/art/tokens/arrow.png" id="3_icg26"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cv58r"]
@@ -13,6 +14,7 @@ radius = 53.0094
 
 [node name="Dragon" type="CharacterBody2D"]
 script = ExtResource("1_jwfkp")
+fireball_scene = ExtResource("2_jsmfs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_3losi")
@@ -21,6 +23,7 @@ texture = ExtResource("2_3losi")
 shape = SubResource("CircleShape2D_cv58r")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_emt5m")
@@ -31,5 +34,9 @@ rotation = -1.5708
 [node name="ArrowSprite" type="Sprite2D" parent="Arrow"]
 position = Vector2(2, 89)
 texture = ExtResource("3_icg26")
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
