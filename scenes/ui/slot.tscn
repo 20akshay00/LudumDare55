@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://um0iugdbx8gh"]
+[gd_scene load_steps=3 format=3 uid="uid://um0iugdbx8gh"]
 
 [ext_resource type="Script" path="res://scenes/ui/slot.gd" id="1_bk785"]
+[ext_resource type="PackedScene" uid="uid://qyfifg1ffgtp" path="res://scenes/card_ui/card_ui.tscn" id="2_fdah2"]
 
 [node name="Slot" type="Control"]
 layout_mode = 3
@@ -8,6 +9,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_bk785")
+card_scene = ExtResource("2_fdah2")
 
 [node name="QuantityLabel" type="Label" parent="."]
 layout_mode = 0

@@ -17,9 +17,10 @@ var quantity := 3 :
 func _ready() -> void:
 	card_scene = preload("res://scenes/card_ui/card_ui.tscn")
 	label.text = str(quantity)
+	label.add_theme_font_override("font", load("res://assets/art/fonts/baddie.otf"))
 	label.add_theme_font_size_override("font_size", 50)
 	#label.add_theme_color_override("font_color", "#000000")
-	label.position = Vector2(0, 0)
+	label.position = Vector2(220, 30)
 	
 	if quantity > 0: update()
 	

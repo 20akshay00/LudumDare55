@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://xonftv2s7opb"]
+
+[ext_resource type="Script" path="res://scenes/summons/elemental.gd" id="1_1fg4k"]
+[ext_resource type="Texture2D" uid="uid://cquxpd4skmst5" path="res://assets/art/tokens/elemental.png" id="2_6mpay"]
+[ext_resource type="Texture2D" uid="uid://h1qv4c07lkm2" path="res://assets/art/tokens/arrow.png" id="3_5rnpx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cv58r"]
+resource_local_to_scene = true
+radius = 51.0392
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_emt5m"]
+radius = 53.0094
+
+[node name="Elemental" type="CharacterBody2D"]
+script = ExtResource("1_1fg4k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6mpay")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cv58r")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_emt5m")
+
+[node name="Arrow" type="Node2D" parent="."]
+rotation = -1.5708
+
+[node name="ArrowSprite" type="Sprite2D" parent="Arrow"]
+position = Vector2(2, 89)
+texture = ExtResource("3_5rnpx")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

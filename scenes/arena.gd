@@ -22,7 +22,6 @@ func is_valid_placement(tile: Vector2i) -> bool:
 		return false
 	return grid[tile]["can_place"] and (grid[tile]["object"] == null)
 		
-	
 func is_cell_out_of_bounds(tile: Vector2i) -> bool:
 	return not get_cell_tile_data(0, tile)
 		
