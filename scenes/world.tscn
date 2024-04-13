@@ -62,10 +62,35 @@ grow_vertical = 2
 card_scene = ExtResource("5_dyauj")
 
 [node name="Slot2" parent="BattleUI" instance=ExtResource("7_f38oc")]
-visible = false
+anchors_preset = -1
+anchor_left = 0.666
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 336.28
+offset_top = 57.0
+offset_right = -41.0
+offset_bottom = -550.0
+grow_horizontal = 2
 
 [node name="Slot3" parent="BattleUI" instance=ExtResource("7_f38oc")]
-visible = false
+anchors_preset = -1
+anchor_left = 0.667
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 48.3599
+offset_top = 555.0
+offset_right = -328.0
+offset_bottom = -56.0
+grow_horizontal = 2
 
 [node name="Slot4" parent="BattleUI" instance=ExtResource("7_f38oc")]
-visible = false
+anchors_preset = -1
+anchor_left = 0.662
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 344.96
+offset_top = 551.0
+offset_right = -40.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 2
