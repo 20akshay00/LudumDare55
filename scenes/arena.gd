@@ -23,3 +23,4 @@ func _process(delta: float) -> void:
 			
 	if grid.has(tile):
 		set_cell(1, tile, 2 + int(not grid[tile]["can_place"]), Vector2i(0, 0))
+

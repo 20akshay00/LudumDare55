@@ -7,6 +7,7 @@ signal reparent_requested(which_card_ui: CardUI)
 @onready var state = $State
 @onready var state_machine: CardStateMachine = $CardStateMachine as CardStateMachine
 @onready var targets: Array[Node] = []
+@export var creature_scene: PackedScene
 
 func _ready() -> void:
 	state_machine.init(self)
@@ -23,9 +24,13 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	state_machine.on_mouse_exited()
 
-func _on_drop_point_detector_area_entered(area: Area2D) -> void:
-	if not targets.has(area):
-		targets.append(area)
+func _on_drop_point_detector_body_entered(body: Node2D) -> void:
+	if not targets.has(body):
+		targets.append(body)
 
-func _on_drop_point_detector_area_exited(area: Area2D) -> void:
-	targets.erase(area)
+func _on_drop_point_detector_body_exited(body: Node2D) -> void:
+	targets.erase(body)
+	
+func play() -> void:
+	Events.card_played.emit(get_global_mouse_position(), creature_scene)
+	queue_free()

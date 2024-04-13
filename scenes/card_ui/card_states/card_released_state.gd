@@ -10,6 +10,7 @@ func enter() -> void:
 
 func on_input(_event: InputEvent) -> void:
 	if played:
+		card_ui.play()
 		return
 			
 	transition_requested.emit(self, CardState.State.BASE)
