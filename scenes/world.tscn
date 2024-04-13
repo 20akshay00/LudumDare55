@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://crl8rxi0nkwqm"]
+[gd_scene load_steps=6 format=3 uid="uid://crl8rxi0nkwqm"]
 
 [ext_resource type="PackedScene" uid="uid://bjaekult8bagh" path="res://scenes/arena.tscn" id="1_6slqh"]
 [ext_resource type="Texture2D" uid="uid://duo31a2ydqg8u" path="res://assets/art/background_temp.png" id="1_eefpu"]
 [ext_resource type="PackedScene" uid="uid://qyfifg1ffgtp" path="res://scenes/card_ui/card_ui.tscn" id="3_a8svq"]
+[ext_resource type="Script" path="res://scenes/ui/hand.gd" id="3_cbcvj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0a8h"]
-size = Vector2(1040, 921)
+size = Vector2(960, 948)
 
 [node name="World" type="Node2D"]
 
@@ -17,9 +18,10 @@ texture = ExtResource("1_eefpu")
 position = Vector2(57, 63)
 
 [node name="CardDropArea" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
-position = Vector2(580, 529.5)
+position = Vector2(540, 543)
 shape = SubResource("RectangleShape2D_v0a8h")
 
 [node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
@@ -33,6 +35,7 @@ offset_top = 70.0
 offset_right = -65.0
 offset_bottom = 377.0
 grow_horizontal = 0
+script = ExtResource("3_cbcvj")
 
 [node name="CardUI" parent="BattleUI/Hand" instance=ExtResource("3_a8svq")]
 layout_mode = 2
