@@ -17,10 +17,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var tile = local_to_map(get_local_mouse_position())
 
-	for x in _gridsize:
-		for y in _gridsize:
-			erase_cell(1, Vector2i(x, y))
-			
-	if grid.has(tile):
-		set_cell(1, tile, 2 + int(not grid[tile]["can_place"]), Vector2i(0, 0))
-
+	#for x in _gridsize:
+		#for y in _gridsize:
+			#erase_cell(1, Vector2i(x, y))
+			#
+	#if grid.has(tile):
+		#set_cell(1, tile, 2 + int(not grid[tile]["can_place"]), Vector2i(0, 0))
+#

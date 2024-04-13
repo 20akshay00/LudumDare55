@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://n1v0tgj2qaq" path="res://assets/art/tokens/dragon.png" id="2_3losi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cv58r"]
+resource_local_to_scene = true
 radius = 51.0392
 
 [node name="Dragon" type="CharacterBody2D"]

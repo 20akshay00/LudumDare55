@@ -1,6 +1,7 @@
 extends Node
 
 signal card_played(pos: Vector2, creature: PackedScene)
+signal token_removed(summon_name: String)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

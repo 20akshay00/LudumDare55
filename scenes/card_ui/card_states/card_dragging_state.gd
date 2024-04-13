@@ -10,6 +10,7 @@ func enter() -> void:
 	
 	card_ui.state.text = "DRAGGING"
 	card_ui.sprite.self_modulate.a = 0.5
+	card_ui.slot.remove_card()
 	
 	minimum_drag_time_elapsed = false
 	var threshold_timer := get_tree().create_timer(DRAG_MINIMUM_TRESHOLD, false)
@@ -25,7 +26,9 @@ func on_input(event: InputEvent) -> void:
 		card_ui.global_position = card_ui.get_global_mouse_position() - card_ui.pivot_offset
 	
 	if cancel: 
-		transition_requested.emit(self, CardState.State.BASE)
+		card_ui.slot.add_card()
+		card_ui.queue_free()
+		# transition_requested.emit(self, CardState.State.BASE)
 		
 	elif minimum_drag_time_elapsed and confirm: 
 		get_viewport().set_input_as_handled()

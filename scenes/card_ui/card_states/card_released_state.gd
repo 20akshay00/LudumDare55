@@ -12,5 +12,7 @@ func on_input(_event: InputEvent) -> void:
 	if played:
 		card_ui.play()
 		return
-			
-	transition_requested.emit(self, CardState.State.BASE)
+	
+	card_ui.slot.add_card()
+	card_ui.queue_free()		
+	#transition_requested.emit(self, CardState.State.BASE)

@@ -35,5 +35,6 @@ func _on_drop_point_detector_body_exited(body: Node2D) -> void:
 	targets.erase(body)
 	
 func play() -> void:
-	Events.card_played.emit(get_global_mouse_position(), creature_scene)
+	Events.card_played.emit(get_global_mouse_position(), creature_scene, slot)
 	queue_free()
+
