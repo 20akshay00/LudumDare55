@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/game_manager.gd" id="1_1nhbm"]
 [ext_resource type="PackedScene" uid="uid://bjaekult8bagh" path="res://scenes/arena.tscn" id="1_6slqh"]
-[ext_resource type="Texture2D" uid="uid://ca8hjwqhjilan" path="res://assets/art/levels/Level 1.jpg" id="2_w0are"]
+[ext_resource type="Texture2D" uid="uid://buccapsswtvia" path="res://assets/art/levels/Level1.jpg" id="2_ldy0c"]
 [ext_resource type="Texture2D" uid="uid://dyxjl4cq6yqg1" path="res://assets/art/tile_plain.png" id="4_1pk7v"]
 [ext_resource type="PackedScene" uid="uid://pankmv5l5j61" path="res://scenes/summons/dragon.tscn" id="5_dyauj"]
 [ext_resource type="Texture2D" uid="uid://d2rp4lbruri8m" path="res://assets/art/tile_wall.png" id="5_y3bcl"]
@@ -38,7 +38,7 @@ arena = NodePath("../Arena")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-texture = ExtResource("2_w0are")
+texture = ExtResource("2_ldy0c")
 
 [node name="Arena" parent="." instance=ExtResource("1_6slqh")]
 scale = Vector2(1, 1)

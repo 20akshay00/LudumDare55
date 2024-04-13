@@ -1,6 +1,6 @@
 extends TileMap
 
-@export var _gridsize = Vector2(13, 11)
+@export var _gridsize = Vector2(13, 13)
 var grid = {}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,15 +14,13 @@ func _ready() -> void:
 			
 	self_modulate.a = 0
 
-
 func set_occupied(tile: Vector2i, object: Node) -> void:
-	grid[tile]["can_place"] = false
 	grid[tile]["object"] = object
 
 func is_valid_placement(tile: Vector2i) -> bool:
 	if is_cell_out_of_bounds(tile):
 		return false
-	return grid[tile]["can_place"]
+	return grid[tile]["can_place"] and (grid[tile]["object"] == null)
 		
 	
 func is_cell_out_of_bounds(tile: Vector2i) -> bool:

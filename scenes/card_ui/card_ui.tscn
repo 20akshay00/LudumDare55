@@ -50,6 +50,7 @@ script = ExtResource("7_45ccw")
 state = 4
 
 [node name="State" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 146.0
 offset_top = 23.0
