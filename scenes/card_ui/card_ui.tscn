@@ -1,8 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://qyfifg1ffgtp"]
+[gd_scene load_steps=8 format=3 uid="uid://qyfifg1ffgtp"]
 
-[ext_resource type="Texture2D" uid="uid://dxo1vrvnv6w72" path="res://assets/art/card.png" id="1_0g0hq"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_ui.gd" id="1_yyvpy"]
-[ext_resource type="PackedScene" uid="uid://pankmv5l5j61" path="res://scenes/summons/test_creature.tscn" id="2_ltexs"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_state_machine.gd" id="3_lpbt2"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/card_base_state.gd" id="4_0upvv"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/card_clicked_state.gd" id="5_vrjiv"]
@@ -10,26 +8,24 @@
 [ext_resource type="Script" path="res://scenes/card_ui/card_states/card_released_state.gd" id="7_45ccw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpsh"]
-size = Vector2(198, 295)
+size = Vector2(265, 473.5)
 
 [node name="CardUI" type="Control"]
-custom_minimum_size = Vector2(200, 300)
+custom_minimum_size = Vector2(295, 503)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_yyvpy")
-creature_scene = ExtResource("2_ltexs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(100, 147)
-texture = ExtResource("1_0g0hq")
+position = Vector2(152, 253)
 
 [node name="DropPointDetector" type="Area2D" parent="."]
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
-position = Vector2(100, 147)
+position = Vector2(151, 250)
 shape = SubResource("RectangleShape2D_0qpsh")
 
 [node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -53,9 +49,10 @@ state = 4
 
 [node name="State" type="Label" parent="."]
 layout_mode = 0
-offset_top = 7.0
-offset_right = 199.0
-offset_bottom = 51.0
+offset_left = 146.0
+offset_top = 23.0
+offset_right = 345.0
+offset_bottom = 67.0
 text = "BASE"
 horizontal_alignment = 1
 

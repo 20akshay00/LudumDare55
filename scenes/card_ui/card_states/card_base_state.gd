@@ -7,6 +7,7 @@ func enter() -> void:
 	card_ui.reparent_requested.emit(card_ui)
 	card_ui.state.text = "BASE"
 	card_ui.pivot_offset = Vector2.ZERO
+	card_ui.sprite.self_modulate.a = 1
 	
 func on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_mouse"):

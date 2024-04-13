@@ -9,9 +9,12 @@ func enter() -> void:
 		card_ui.reparent(ui_layer)
 	
 	card_ui.state.text = "DRAGGING"
+	card_ui.sprite.self_modulate.a = 0.5
+	
 	minimum_drag_time_elapsed = false
 	var threshold_timer := get_tree().create_timer(DRAG_MINIMUM_TRESHOLD, false)
 	threshold_timer.timeout.connect(func(): minimum_drag_time_elapsed = true)
+	
 	
 func on_input(event: InputEvent) -> void:
 	var mouse_motion := event is InputEventMouseMotion

@@ -7,7 +7,10 @@ signal reparent_requested(which_card_ui: CardUI)
 @onready var state = $State
 @onready var state_machine: CardStateMachine = $CardStateMachine as CardStateMachine
 @onready var targets: Array[Node] = []
+@onready var sprite := $Sprite2D
+
 @export var creature_scene: PackedScene
+@export var slot: Control
 
 func _ready() -> void:
 	state_machine.init(self)
