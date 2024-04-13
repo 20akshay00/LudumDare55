@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://qyfifg1ffgtp"]
+
+[ext_resource type="Texture2D" uid="uid://dxo1vrvnv6w72" path="res://assets/art/card.png" id="1_0g0hq"]
+[ext_resource type="Script" path="res://scenes/card_ui/card_ui.gd" id="1_yyvpy"]
+[ext_resource type="Script" path="res://scenes/card_ui/card_state_machine.gd" id="3_lpbt2"]
+[ext_resource type="Script" path="res://scenes/card_ui/card_states/card_base_state.gd" id="4_0upvv"]
+[ext_resource type="Script" path="res://scenes/card_ui/card_states/card_clicked_state.gd" id="5_vrjiv"]
+[ext_resource type="Script" path="res://scenes/card_ui/card_states/card_dragging_state.gd" id="6_05hsh"]
+[ext_resource type="Script" path="res://scenes/card_ui/card_states/card_released_state.gd" id="7_45ccw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpsh"]
+size = Vector2(198, 295)
+
+[node name="CardUI" type="Control"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_yyvpy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(100, 147)
+texture = ExtResource("1_0g0hq")
+
+[node name="DropPointDetector" type="Area2D" parent="."]
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
+position = Vector2(100, 147)
+shape = SubResource("RectangleShape2D_0qpsh")
+
+[node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_lpbt2")
+initial_state = NodePath("CardBaseState")
+
+[node name="CardBaseState" type="Node" parent="CardStateMachine"]
+script = ExtResource("4_0upvv")
+
+[node name="CardClickedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("5_vrjiv")
+state = 1
+
+[node name="CardDraggingState" type="Node" parent="CardStateMachine"]
+script = ExtResource("6_05hsh")
+state = 2
+
+[node name="CardReleasedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("7_45ccw")
+state = 4
+
+[node name="State" type="Label" parent="."]
+layout_mode = 0
+offset_top = 7.0
+offset_right = 199.0
+offset_bottom = 51.0
+text = "BASE"
+horizontal_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

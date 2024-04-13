@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://bjaekult8bagh"]
 
 [ext_resource type="Texture2D" uid="uid://dyxjl4cq6yqg1" path="res://assets/art/tile_plain.png" id="1_gpcnh"]
-[ext_resource type="Script" path="res://arena.gd" id="1_idtxf"]
 [ext_resource type="Texture2D" uid="uid://d2rp4lbruri8m" path="res://assets/art/tile_wall.png" id="2_ka43n"]
 [ext_resource type="Texture2D" uid="uid://ctp8mtjtjn3rq" path="res://assets/art/tile_select.png" id="3_1h402"]
 [ext_resource type="Texture2D" uid="uid://b825dh3u7g3ul" path="res://assets/art/tile_blocked.png" id="4_fahlq"]
+[ext_resource type="Script" path="res://scenes/arena.gd" id="5_cdn15"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rk2v6"]
 texture = ExtResource("1_gpcnh")
@@ -41,4 +41,4 @@ format = 2
 layer_0/name = "Data"
 layer_1/name = "Overlay"
 layer_1/tile_data = PackedInt32Array()
-script = ExtResource("1_idtxf")
+script = ExtResource("5_cdn15")
