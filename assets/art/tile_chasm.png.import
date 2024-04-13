@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b825dh3u7g3ul"
-path="res://.godot/imported/tile_blocked.png-de019cc9e758dde54bd0b37b8f39be02.ctex"
+uid="uid://drse1ry2j6dut"
+path="res://.godot/imported/tile_chasm.png-efebf355d6154d3bb158a2f12a402fba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/tile_blocked.png"
-dest_files=["res://.godot/imported/tile_blocked.png-de019cc9e758dde54bd0b37b8f39be02.ctex"]
+source_file="res://assets/art/tile_chasm.png"
+dest_files=["res://.godot/imported/tile_chasm.png-efebf355d6154d3bb158a2f12a402fba.ctex"]
 
 [params]
 

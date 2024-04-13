@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://crl8rxi0nkwqm"]
+[gd_scene load_steps=13 format=3 uid="uid://crl8rxi0nkwqm"]
 
 [ext_resource type="Script" path="res://scenes/game_manager.gd" id="1_1nhbm"]
 [ext_resource type="PackedScene" uid="uid://bjaekult8bagh" path="res://scenes/arena.tscn" id="1_6slqh"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dyxjl4cq6yqg1" path="res://assets/art/tile_plain.png" id="4_1pk7v"]
 [ext_resource type="PackedScene" uid="uid://pankmv5l5j61" path="res://scenes/summons/dragon.tscn" id="5_dyauj"]
 [ext_resource type="Texture2D" uid="uid://d2rp4lbruri8m" path="res://assets/art/tile_wall.png" id="5_y3bcl"]
+[ext_resource type="Texture2D" uid="uid://drse1ry2j6dut" path="res://assets/art/tile_chasm.png" id="6_djml2"]
 [ext_resource type="PackedScene" uid="uid://um0iugdbx8gh" path="res://scenes/ui/slot.tscn" id="7_f38oc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rxycu"]
@@ -15,6 +16,8 @@ texture_region_size = Vector2i(98, 98)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-49, -49, 49, -49, 49, 49, -49, 49)
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_on7kh"]
 texture = ExtResource("5_y3bcl")
@@ -23,12 +26,27 @@ texture_region_size = Vector2i(98, 98)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-49, -49, 49, -49, 49, 49, -49, 49)
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-49, -49, 49, -49, 49, 49, -49, 49)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxnhk"]
+texture = ExtResource("6_djml2")
+texture_region_size = Vector2i(98, 98)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-49, -49, 49, -49, 49, 49, -49, 49)
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_mafs3"]
 tile_size = Vector2i(98, 98)
 physics_layer_0/collision_layer = 2
+physics_layer_1/collision_layer = 4
 sources/0 = SubResource("TileSetAtlasSource_rxycu")
 sources/1 = SubResource("TileSetAtlasSource_on7kh")
+sources/2 = SubResource("TileSetAtlasSource_qxnhk")
 
 [node name="World" type="Node2D"]
 
@@ -44,7 +62,7 @@ texture = ExtResource("2_ldy0c")
 scale = Vector2(1, 1)
 tile_set = SubResource("TileSet_mafs3")
 rendering_quadrant_size = 98
-layer_0/tile_data = PackedInt32Array(65537, 0, 0, 131073, 0, 0, 196609, 0, 0, 262145, 1, 0, 327681, 1, 0, 393217, 1, 0, 458753, 1, 0, 524289, 0, 0, 589825, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, 262146, 1, 0, 327682, 1, 0, 393218, 1, 0, 458754, 1, 0, 524290, 0, 0, 589826, 0, 0, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0, 262147, 0, 0, 327683, 1, 0, 393219, 1, 0, 458755, 1, 0, 524291, 0, 0, 589827, 0, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 262148, 1, 0, 327684, 1, 0, 393220, 1, 0, 458756, 0, 0, 524292, 0, 0, 589828, 0, 0, 65541, 0, 0, 131077, 0, 0, 196613, 0, 0, 262149, 1, 0, 327685, 1, 0, 393221, 1, 0, 458757, 0, 0, 524293, 0, 0, 589829, 0, 0, 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, 262150, 1, 0, 327686, 1, 0, 393222, 1, 0, 458758, 0, 0, 524294, 0, 0, 589830, 0, 0, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0, 262151, 1, 0, 327687, 1, 0, 393223, 1, 0, 458759, 0, 0, 524295, 0, 0, 589831, 0, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 262152, 1, 0, 327688, 1, 0, 393224, 1, 0, 458760, 0, 0, 524296, 0, 0, 589832, 0, 0, 65545, 0, 0, 131081, 0, 0, 196617, 0, 0, 262153, 1, 0, 327689, 1, 0, 393225, 1, 0, 458761, 0, 0, 524297, 0, 0, 589833, 0, 0, 65546, 0, 0, 131082, 0, 0, 196618, 0, 0, 262154, 1, 0, 327690, 1, 0, 393226, 0, 0, 458762, 0, 0, 524298, 0, 0, 589834, 0, 0, 65547, 0, 0, 131083, 0, 0, 196619, 0, 0, 262155, 0, 0, 327691, 1, 0, 393227, 1, 0, 458763, 0, 0, 524299, 0, 0, 589835, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 0, 1, 0, 65536, 1, 0, 131072, 1, 0, 196608, 1, 0, 262144, 1, 0, 327680, 1, 0, 393216, 1, 0, 458752, 1, 0, 524288, 1, 0, 589824, 1, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 12, 1, 0, 65548, 1, 0, 131084, 1, 0, 196620, 1, 0, 262156, 1, 0, 327692, 1, 0, 393228, 1, 0, 458764, 1, 0, 524300, 1, 0, 589836, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0)
+layer_0/tile_data = PackedInt32Array(65537, 0, 0, 131073, 0, 0, 196609, 0, 0, 524289, 0, 0, 589825, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, 524290, 0, 0, 589826, 0, 0, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0, 262147, 0, 0, 524291, 0, 0, 589827, 0, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 458756, 0, 0, 524292, 0, 0, 589828, 0, 0, 65541, 0, 0, 131077, 0, 0, 196613, 0, 0, 458757, 0, 0, 524293, 0, 0, 589829, 0, 0, 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, 458758, 0, 0, 589830, 0, 0, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0, 458759, 0, 0, 524295, 0, 0, 589831, 0, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 458760, 0, 0, 524296, 0, 0, 589832, 0, 0, 65545, 0, 0, 131081, 0, 0, 196617, 0, 0, 458761, 0, 0, 524297, 0, 0, 589833, 0, 0, 65546, 0, 0, 131082, 0, 0, 196618, 0, 0, 458762, 0, 0, 524298, 0, 0, 589834, 0, 0, 65547, 0, 0, 131083, 0, 0, 196619, 0, 0, 262155, 0, 0, 524299, 0, 0, 589835, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 0, 1, 0, 65536, 1, 0, 131072, 1, 0, 196608, 1, 0, 262144, 1, 0, 327680, 1, 0, 393216, 1, 0, 458752, 1, 0, 524288, 1, 0, 589824, 1, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 12, 1, 0, 65548, 1, 0, 131084, 1, 0, 196620, 1, 0, 262156, 1, 0, 327692, 1, 0, 393228, 1, 0, 458764, 1, 0, 524300, 1, 0, 589836, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 524294, 0, 0, 393227, 2, 0, 458763, 0, 0, 393226, 2, 0, 262145, 2, 0, 327681, 2, 0, 393217, 2, 0, 458753, 2, 0, 458754, 2, 0, 393218, 2, 0, 327682, 2, 0, 262146, 2, 0, 393219, 2, 0, 327683, 2, 0, 458755, 2, 0, 393220, 2, 0, 327684, 2, 0, 262148, 2, 0, 327685, 2, 0, 262149, 2, 0, 393221, 2, 0, 393222, 2, 0, 327686, 2, 0, 262150, 2, 0, 327687, 2, 0, 393223, 2, 0, 262151, 2, 0, 262152, 2, 0, 327688, 2, 0, 327689, 2, 0, 262153, 2, 0, 393225, 2, 0, 393224, 2, 0, 262154, 2, 0, 327690, 2, 0, 327691, 2, 0)
 
 [node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 

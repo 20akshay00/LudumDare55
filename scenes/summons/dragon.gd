@@ -3,7 +3,6 @@ extends CharacterBody2D
 @export var summon_name: String = "dragon"
 @export var slot: Slot
 @export var fireball_scene: PackedScene
-@export var SHOOT_VELOCITY: float = 75
 
 var direction := Vector2(1, 0)
 @onready var sprite := $Sprite2D
@@ -35,7 +34,7 @@ func shoot() -> void:
 	var fireball = fireball_scene.instantiate()
 	add_sibling(fireball)
 	fireball.position = position + get_parent().tile_set.tile_size.x * direction
-	fireball.velocity = SHOOT_VELOCITY * direction 
+	fireball.launch(direction) 
 	
 	
 	
