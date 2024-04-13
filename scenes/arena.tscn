@@ -1,0 +1,44 @@
+[gd_scene load_steps=11 format=3 uid="uid://bjaekult8bagh"]
+
+[ext_resource type="Texture2D" uid="uid://dyxjl4cq6yqg1" path="res://assets/art/tile_plain.png" id="1_gpcnh"]
+[ext_resource type="Script" path="res://arena.gd" id="1_idtxf"]
+[ext_resource type="Texture2D" uid="uid://d2rp4lbruri8m" path="res://assets/art/tile_wall.png" id="2_ka43n"]
+[ext_resource type="Texture2D" uid="uid://ctp8mtjtjn3rq" path="res://assets/art/tile_select.png" id="3_1h402"]
+[ext_resource type="Texture2D" uid="uid://b825dh3u7g3ul" path="res://assets/art/tile_blocked.png" id="4_fahlq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rk2v6"]
+texture = ExtResource("1_gpcnh")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vc03b"]
+texture = ExtResource("2_ka43n")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sns1y"]
+texture = ExtResource("3_1h402")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mg8nu"]
+texture = ExtResource("4_fahlq")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_t14k7"]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_rk2v6")
+sources/1 = SubResource("TileSetAtlasSource_vc03b")
+sources/2 = SubResource("TileSetAtlasSource_sns1y")
+sources/3 = SubResource("TileSetAtlasSource_mg8nu")
+
+[node name="Arena" type="TileMap"]
+scale = Vector2(0.5, 0.5)
+tile_set = SubResource("TileSet_t14k7")
+rendering_quadrant_size = 128
+format = 2
+layer_0/name = "Data"
+layer_1/name = "Overlay"
+layer_1/tile_data = PackedInt32Array()
+script = ExtResource("1_idtxf")
