@@ -16,6 +16,9 @@ func _ready() -> void:
 
 func set_occupied(tile: Vector2i, object: Node) -> void:
 	grid[tile]["object"] = object
+	
+func set_unoccupied(tile: Vector2i) -> void:
+	grid[tile]["object"] = null
 
 func is_valid_placement(tile: Vector2i) -> bool:
 	if is_cell_out_of_bounds(tile):

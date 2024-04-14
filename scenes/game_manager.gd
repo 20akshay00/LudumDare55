@@ -1,13 +1,25 @@
 extends Node
 
 @export var arena: TileMap
+@export var player_tile := Vector2i(6, 10)
+@export var player_can_move := true
+
 @onready var sound_place = preload("res://assets/audio/LD55 Card Place.wav")
 @onready var sound_place_fail = preload("res://assets/audio/LD55 Placement Blocked.wav")
 
+var player_scene = preload("res://scenes/summons/player.tscn")
+var player: CharacterBody2D = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AudioManager.play_music_level()
 	Events.card_played.connect(_on_card_played)
 	Events.token_removed.connect(_on_token_removed)
+	
+	player = player_scene.instantiate()
+	arena.add_child(player)
+	player.z_index = 2
+	player.position = arena.map_to_local(player_tile)
 	
 func _on_card_played(pos: Vector2, creature_scene: PackedScene, slot: Slot):
 	var creature = creature_scene.instantiate()
@@ -25,3 +37,27 @@ func _on_card_played(pos: Vector2, creature_scene: PackedScene, slot: Slot):
 func _on_token_removed(pos: Vector2):
 	var tile = arena.local_to_map(arena.to_local(pos))
 	arena.grid[tile]["object"] = null
+	
+func _input(event: InputEvent) -> void:
+	var dir = Vector2(0, 0)
+	if Input.is_action_just_pressed("down"):
+		dir = Vector2(0, 1)
+	elif Input.is_action_just_pressed("up"):
+		dir = Vector2(0, -1)
+	elif Input.is_action_just_pressed("right"):
+		dir = Vector2(1, 0)
+	elif Input.is_action_just_pressed("left"):
+		dir = Vector2(-1, 0)
+		
+	if (abs(dir.x) == 1 or abs(dir.y) == 1) and player_can_move:
+		player_can_move = false
+		#arena.can_player_move()
+		arena.set_unoccupied(player_tile)
+		player_tile += Vector2i(dir.x, dir.y)
+		arena.set_occupied(player_tile, player)
+		
+		var tween = get_tree().create_tween()
+		
+		tween.tween_property(player, "position", arena.map_to_local(player_tile), 0.5).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_callback(func(): player_can_move = true)
+
