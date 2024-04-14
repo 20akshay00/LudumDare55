@@ -2,10 +2,11 @@ extends CharacterBody2D
 
 @export var summon_name: String = "elemental"
 @export var slot: Slot
-var direction := Vector2(1, 0)
 @onready var sprite := $Sprite2D
 @onready var arrow := $Arrow
 @onready var sound_fx = preload("res://assets/audio/LD55 Freezy.wav")
+
+var direction := Vector2(1, 0)
 
 func _ready() -> void:
 	arrow.rotation = direction.angle() - PI/2

@@ -22,13 +22,17 @@ func _process(delta: float) -> void:
 		if body is TileMap:
 			velocity.x = -velocity.x
 		elif "summon_name" in body:
-			print(body.summon_name)
 			if body.summon_name == "skeleton":
-				print(velocity.dot(body.direction))
 				if snappedf(velocity.dot(body.direction), 0.001) < 0:
 					velocity.x = -velocity.x
 				else:
 					body.on_death()
+			elif body.summon_name == "elemental":
+				direction = velocity.normalized()
+				velocity.x = 0
+				var tween = get_tree().create_tween()
+				tween.parallel().tween_property($Base, "modulate:a", 0., 1)
+				tween.parallel().tween_property($Frozen, "modulate:a", 1., 1)
 			else:
 				body.on_death()
 		else:

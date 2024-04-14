@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://rpqolwp2cer6" path="res://assets/art/effects/Frozen-Axe.png" id="3_a6ehl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ke41h"]
-size = Vector2(80, 80)
+size = Vector2(98, 98)
 
 [node name="Axe" type="CharacterBody2D"]
 collision_layer = 5
@@ -17,7 +17,7 @@ position = Vector2(1.5, -1.5)
 texture = ExtResource("2_b4iqp")
 
 [node name="Frozen" type="Sprite2D" parent="."]
-visible = false
+modulate = Color(1, 1, 1, 0)
 texture = ExtResource("3_a6ehl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
