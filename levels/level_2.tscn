@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d2rp4lbruri8m" path="res://assets/art/tile_wall.png" id="6_5cipr"]
 [ext_resource type="Texture2D" uid="uid://drse1ry2j6dut" path="res://assets/art/tile_chasm.png" id="7_s3if0"]
 [ext_resource type="PackedScene" uid="uid://um0iugdbx8gh" path="res://scenes/ui/slot.tscn" id="8_m52nf"]
-[ext_resource type="PackedScene" uid="uid://pankmv5l5j61" path="res://scenes/summons/dragon.tscn" id="9_6mmed"]
+[ext_resource type="PackedScene" uid="uid://byptc332kp3tg" path="res://scenes/effects/axe.tscn" id="9_rk5w1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rxycu"]
 texture = ExtResource("5_6ffld")
@@ -71,6 +71,12 @@ tile_set = SubResource("TileSet_mafs3")
 rendering_quadrant_size = 98
 layer_0/tile_data = PackedInt32Array(65537, 2, 0, 131073, 2, 0, 196609, 0, 0, 524289, 0, 0, 589825, 0, 0, 65538, 2, 0, 131074, 2, 0, 196610, 0, 0, 524290, 0, 0, 589826, 0, 0, 65539, 2, 0, 131075, 2, 0, 196611, 2, 0, 262147, 0, 0, 524291, 0, 0, 589827, 0, 0, 65540, 2, 0, 131076, 2, 0, 196612, 2, 0, 458756, 0, 0, 524292, 0, 0, 589828, 0, 0, 65541, 0, 0, 131077, 2, 0, 196613, 2, 0, 458757, 0, 0, 524293, 0, 0, 589829, 0, 0, 65542, 0, 0, 131078, 2, 0, 196614, 2, 0, 458758, 0, 0, 589830, 0, 0, 65543, 0, 0, 131079, 2, 0, 196615, 2, 0, 458759, 0, 0, 524295, 0, 0, 589831, 0, 0, 65544, 0, 0, 131080, 2, 0, 196616, 0, 0, 458760, 0, 0, 524296, 0, 0, 589832, 0, 0, 65545, 2, 0, 131081, 2, 0, 196617, 0, 0, 458761, 0, 0, 524297, 0, 0, 589833, 0, 0, 65546, 2, 0, 131082, 0, 0, 196618, 0, 0, 458762, 0, 0, 524298, 0, 0, 589834, 0, 0, 65547, 2, 0, 131083, 0, 0, 196619, 0, 0, 262155, 0, 0, 524299, 0, 0, 589835, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 0, 1, 0, 65536, 1, 0, 131072, 1, 0, 196608, 1, 0, 262144, 1, 0, 327680, 1, 0, 393216, 1, 0, 458752, 1, 0, 524288, 1, 0, 589824, 1, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 12, 1, 0, 65548, 1, 0, 131084, 1, 0, 196620, 1, 0, 262156, 1, 0, 327692, 1, 0, 393228, 1, 0, 458764, 1, 0, 524300, 1, 0, 589836, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 524294, 0, 0, 393227, 0, 0, 458763, 0, 0, 393226, 0, 0, 262145, 0, 0, 327681, 0, 0, 393217, 0, 0, 458753, 0, 0, 458754, 0, 0, 393218, 0, 0, 327682, 0, 0, 262146, 0, 0, 393219, 0, 0, 327683, 0, 0, 458755, 0, 0, 393220, 0, 0, 327684, 0, 0, 262148, 0, 0, 327685, 0, 0, 262149, 0, 0, 393221, 0, 0, 393222, 0, 0, 327686, 0, 0, 262150, 0, 0, 327687, 0, 0, 393223, 0, 0, 262151, 0, 0, 262152, 0, 0, 327688, 0, 0, 327689, 0, 0, 262153, 0, 0, 393225, 0, 0, 393224, 0, 0, 262154, 0, 0, 327690, 0, 0, 327691, 0, 0, 720900, 1, 0, 720901, 1, 0, 720902, 1, 0, 720903, 1, 0, 720904, 1, 0, -65532, 1, 0, -65528, 1, 0, -131068, 1, 0, -131067, 1, 0, -131066, 1, 0, -131065, 1, 0, -131064, 1, 0, -65531, 0, 0, -65529, 0, 0, -65530, 0, 0)
 
+[node name="Axe" parent="Arena" instance=ExtResource("9_rk5w1")]
+position = Vector2(833, 147)
+
+[node name="Axe2" parent="Arena" instance=ExtResource("9_rk5w1")]
+position = Vector2(833, 832)
+
 [node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 
 [node name="Slot1" parent="BattleUI" instance=ExtResource("8_m52nf")]
@@ -84,7 +90,8 @@ offset_right = -327.0
 offset_bottom = -553.0
 grow_horizontal = 2
 grow_vertical = 2
-card_scene = ExtResource("9_6mmed")
+summon_name = "spider"
+quantity = 2
 
 [node name="Slot2" parent="BattleUI" instance=ExtResource("8_m52nf")]
 anchors_preset = -1
@@ -96,7 +103,8 @@ offset_top = 57.0
 offset_right = -41.0
 offset_bottom = -550.0
 grow_horizontal = 2
-summon_name = "skeleton"
+summon_name = "elemental"
+quantity = 1
 
 [node name="Slot3" parent="BattleUI" instance=ExtResource("8_m52nf")]
 anchors_preset = -1
@@ -108,7 +116,7 @@ offset_top = 555.0
 offset_right = -328.0
 offset_bottom = -56.0
 grow_horizontal = 2
-summon_name = "elemental"
+quantity = 0
 
 [node name="Slot4" parent="BattleUI" instance=ExtResource("8_m52nf")]
 anchors_preset = -1
@@ -121,7 +129,8 @@ offset_right = -40.0
 offset_bottom = -59.0
 grow_horizontal = 2
 grow_vertical = 2
-summon_name = "spider"
+summon_name = "skeleton"
+quantity = 0
 
 [node name="FinishArea" type="Area2D" parent="."]
 position = Vector2(627, -45)
