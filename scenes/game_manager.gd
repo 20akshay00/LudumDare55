@@ -2,6 +2,7 @@ extends Node
 
 @export var arena: TileMap
 @onready var sound_place = preload("res://assets/audio/LD55 Card Place.wav")
+@onready var sound_place_fail = preload("res://assets/audio/LD55 Placement Blocked.wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,6 +19,7 @@ func _on_card_played(pos: Vector2, creature_scene: PackedScene, slot: Slot):
 		creature.slot = slot
 		arena.set_occupied(tile, creature)
 	else: 
+		AudioManager.play_effect(sound_place_fail, 3)
 		slot.add_card()
 	
 func _on_token_removed(pos: Vector2):

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bfh1mem7tuio0"
+path="res://.godot/imported/LD55 Death.wav-97cc3d8f5b5c9f76e5b096a7d0798473.sample"
+
+[deps]
+
+source_file="res://assets/audio/LD55 Death.wav"
+dest_files=["res://.godot/imported/LD55 Death.wav-97cc3d8f5b5c9f76e5b096a7d0798473.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

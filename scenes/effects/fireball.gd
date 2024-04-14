@@ -21,6 +21,7 @@ func _process(_delta: float) -> void:
 					if velocity.dot(tile_fireball - tile_body) != 0:
 						body.on_death()
 				elif cur_dir.dot(body.direction) == -1:
+					AudioManager.play_effect(sound_fx, -5)
 					on_death()
 				else:
 					AudioManager.play_effect(sound_fx, -5)
