@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c5qqx0l0d8v3u"
+path="res://.godot/imported/LD55 Complete Level.wav-8067a69c1391aa4a2c5a2d44107b259f.sample"
+
+[deps]
+
+source_file="res://assets/audio/LD55 Complete Level.wav"
+dest_files=["res://.godot/imported/LD55 Complete Level.wav-8067a69c1391aa4a2c5a2d44107b259f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

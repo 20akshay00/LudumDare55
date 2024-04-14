@@ -9,7 +9,6 @@ func create(pos1: Vector2, pos2: Vector2) -> void:
 	tween = get_tree().create_tween()	
 	tween.tween_method(update_web_end, pos1, pos2, 1)
 			
-			
 func remove(pos: Vector2) -> void:
 	if tween: tween.kill()
 	

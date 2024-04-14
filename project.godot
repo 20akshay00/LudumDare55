@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="LudumDare55"
-run/main_scene="res://scenes/world.tscn"
+run/main_scene="res://levels/level_1.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Events="*res://globals/Events.tscn"
+AudioManager="*res://globals/AudioManager.tscn"
 
 [display]
 

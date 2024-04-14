@@ -8,6 +8,7 @@ var direction := Vector2(1, 0)
 @onready var sprite := $Sprite2D
 @onready var arrow := $Arrow
 @onready var timer := $ShootTimer
+@onready var sound_fx = preload("res://assets/audio/LD55 Dragon Fire_.wav")
 
 var frozen = false
 
@@ -34,7 +35,8 @@ func shoot() -> void:
 	var fireball = fireball_scene.instantiate()
 	add_sibling(fireball)
 	fireball.position = position + (5 + get_parent().tile_set.tile_size.x) * direction
-	fireball.launch(direction) 
+	fireball.launch(direction)
+	AudioManager.play_effect(sound_fx, -5)
 	
 func on_death() -> void:
 	$Arrow.visible = false

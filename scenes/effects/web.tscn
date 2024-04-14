@@ -1,7 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfs6q3nppv5cm"]
+[gd_scene load_steps=3 format=3 uid="uid://cfs6q3nppv5cm"]
 
 [ext_resource type="Script" path="res://scenes/effects/web.gd" id="1_vpfww"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qp1q1"]
 
 [node name="Web" type="Line2D"]
 width = 4.0
 script = ExtResource("1_vpfww")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qp1q1")

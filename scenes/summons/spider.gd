@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 @onready var sprite := $Sprite2D
 @onready var arrow := $Arrow
+@onready var sound_fx = preload("res://assets/audio/LD55 Spider.wav")
 
 var direction := Vector2(1, 0)
 var partner: CharacterBody2D = null
@@ -73,7 +74,8 @@ func update_web() -> void:
 			add_sibling(web)
 			get_parent().move_child(web, 0)
 			web.create(position, partner.position)
-			
+			AudioManager.play_effect(sound_fx, -5)
+				
 			partner.partner = self
 			partner.web = web
 		
