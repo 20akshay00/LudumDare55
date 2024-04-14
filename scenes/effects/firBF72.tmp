@@ -20,4 +20,3 @@ texture = ExtResource("1_aslxa")
 shape = SubResource("CapsuleShape2D_arv36")
 
 [node name="GPUParticles2D" parent="." instance=ExtResource("3_v0wo2")]
-self_modulate = Color(1, 0.309804, 0.239216, 1)

@@ -9,7 +9,7 @@ var direction := Vector2(1, 0)
 func _ready() -> void:
 	arrow.rotation = direction.angle() - PI/2
 					
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 			if event.is_action_pressed("left_mouse"):
 				direction = direction.rotated(PI/2)

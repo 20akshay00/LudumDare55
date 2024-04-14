@@ -12,6 +12,7 @@ height = 98.0
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_tosgd")
+SPEED = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_aslxa")
@@ -20,4 +21,3 @@ texture = ExtResource("1_aslxa")
 shape = SubResource("CapsuleShape2D_arv36")
 
 [node name="GPUParticles2D" parent="." instance=ExtResource("3_v0wo2")]
-self_modulate = Color(1, 0.309804, 0.239216, 1)

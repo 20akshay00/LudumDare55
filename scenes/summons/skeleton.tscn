@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://hbaj6dbfqb4"]
+[gd_scene load_steps=7 format=3 uid="uid://hbaj6dbfqb4"]
 
 [ext_resource type="Script" path="res://scenes/summons/skeleton.gd" id="1_sdqxa"]
 [ext_resource type="Texture2D" uid="uid://u8f50egqug2r" path="res://assets/art/tokens/skeleton.png" id="2_5matv"]
 [ext_resource type="Texture2D" uid="uid://h1qv4c07lkm2" path="res://assets/art/tokens/arrow.png" id="3_0xav5"]
+[ext_resource type="PackedScene" path="res://scenes/effects/death_effect.tscn" id="4_x128s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cv58r"]
 resource_local_to_scene = true
@@ -32,5 +33,7 @@ rotation = -1.5708
 [node name="ArrowSprite" type="Sprite2D" parent="Arrow"]
 position = Vector2(2, 89)
 texture = ExtResource("3_0xav5")
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("4_x128s")]
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
