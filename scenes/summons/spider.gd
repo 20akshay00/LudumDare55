@@ -25,11 +25,11 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 				$RayCast2D.rotation = direction.angle() + PI/2
 				update_web()
 				
-			elif event.is_action_pressed("right_mouse"):
-				update_web()
-				Events.token_removed.emit(get_global_mouse_position())
-				slot.add_card()
-				queue_free()
+			#elif event.is_action_pressed("right_mouse"):
+				#update_web()
+				#Events.token_removed.emit(get_global_mouse_position())
+				#slot.add_card()
+				#queue_free()
 
 func on_death() -> void:
 	update_web()

@@ -87,6 +87,27 @@ position = Vector2(540, 247)
 [node name="BreakableWall5" parent="Arena" instance=ExtResource("10_0glge")]
 position = Vector2(441, 247)
 
+[node name="BreakableWall6" parent="Arena" instance=ExtResource("10_0glge")]
+position = Vector2(338, 635)
+
+[node name="BreakableWall7" parent="Arena" instance=ExtResource("10_0glge")]
+position = Vector2(731, 637)
+
+[node name="BreakableWall8" parent="Arena" instance=ExtResource("10_0glge")]
+position = Vector2(633, 634)
+
+[node name="BreakableWall9" parent="Arena" instance=ExtResource("10_0glge")]
+position = Vector2(535, 635)
+
+[node name="BreakableWall12" parent="Arena" instance=ExtResource("10_0glge")]
+position = Vector2(934, 637)
+
+[node name="BreakableWall11" parent="Arena" instance=ExtResource("10_0glge")]
+position = Vector2(832, 637)
+
+[node name="BreakableWall10" parent="Arena" instance=ExtResource("10_0glge")]
+position = Vector2(436, 635)
+
 [node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 
 [node name="Slot1" parent="BattleUI" instance=ExtResource("11_a4vkk")]

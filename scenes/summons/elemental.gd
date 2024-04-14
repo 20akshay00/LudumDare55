@@ -18,10 +18,10 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 				arrow.rotation = direction.angle() - PI/2
 				#sprite.flip_v = (direction.x == -1)
 				
-			elif event.is_action_pressed("right_mouse"):
-				Events.token_removed.emit(get_global_mouse_position())
-				slot.add_card()
-				queue_free()
+			#elif event.is_action_pressed("right_mouse"):
+				#Events.token_removed.emit(get_global_mouse_position())
+				#slot.add_card()
+				#queue_free()
 
 func on_death() -> void:
 	$Arrow.visible = false
