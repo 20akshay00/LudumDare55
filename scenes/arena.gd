@@ -45,6 +45,11 @@ func is_valid_player_move(tile: Vector2i) -> bool:
 func is_chasm_drop(tile: Vector2i) -> bool:
 	return player_grid[tile]["is_chasm"] and not player_grid[tile]["web"]
 	
+func set_web(tile: Vector2i) -> void:
+	player_grid[tile]["web"] = true
+
+func unset_web(tile: Vector2i) -> void:
+	player_grid[tile]["web"] = false
 #func _process(delta: float) -> void:
 	#var tile = local_to_map(get_local_mouse_position())
 

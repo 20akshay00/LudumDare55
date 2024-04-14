@@ -59,7 +59,8 @@ func look_for_partner():
 		return null
 	
 func update_web() -> void:
-	if web and is_instance_valid(web): 
+	if web and is_instance_valid(web):
+		Events.web_removed.emit(position, partner.position) 
 		web.remove(position)
 		partner.web = null
 		partner.partner = null
@@ -70,6 +71,7 @@ func update_web() -> void:
 	
 	if partner:
 		if partner.direction.dot(direction) == -1: 
+			Events.web_created.emit(position, partner.position) 
 			web = web_scene.instantiate()
 			add_sibling(web)
 			get_parent().move_child(web, 0)

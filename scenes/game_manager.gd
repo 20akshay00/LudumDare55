@@ -15,6 +15,9 @@ func _ready() -> void:
 	AudioManager.play_music_level()
 	Events.card_played.connect(_on_card_played)
 	Events.token_removed.connect(_on_token_removed)
+	Events.web_created.connect(_on_web_created)
+	Events.web_removed.connect(_on_web_removed)
+	Events.web_anim_complete.connect(_on_web_anim_complete)
 	
 	player = player_scene.instantiate()
 	arena.add_child(player)
@@ -67,4 +70,38 @@ func _input(event: InputEvent) -> void:
 				tween.tween_callback(func(): player_can_move = true)
 
 
+func _on_web_created(pos1: Vector2, pos2: Vector2):
+	var tile1 = arena.local_to_map(pos1)
+	var tile2 = arena.local_to_map(pos2)
+	var dir = (tile1 - tile2)
+	
+	if dir.x == 0:
+		var start = min(tile1.y, tile2.y)
+		var end = max(tile1.y, tile2.y)
+		for y in range(start, end):
+			arena.set_web(Vector2i(tile1.x, y))
+	elif dir.y == 0:
+		var start = min(tile1.x, tile2.x)
+		var end = max(tile1.x, tile2.x)
+		for x in range(start, end):
+			arena.set_web(Vector2i(x, tile1.y))		
 
+func _on_web_removed(pos1: Vector2, pos2: Vector2):
+	var tile1 = arena.local_to_map(pos1)
+	var tile2 = arena.local_to_map(pos2)
+	var dir = (tile1 - tile2)
+	
+	if dir.x == 0:
+		var start = min(tile1.y, tile2.y)
+		var end = max(tile1.y, tile2.y)
+		for y in range(start, end):
+			arena.unset_web(Vector2i(tile1.x, y))
+	elif dir.y == 0:
+		var start = min(tile1.x, tile2.x)
+		var end = max(tile1.x, tile2.x)
+		for x in range(start, end):
+			arena.unset_web(Vector2i(x, tile1.y))		
+	
+func _on_web_anim_complete() -> void:	
+	if arena.is_chasm_drop(player_tile):
+		player.on_fall()

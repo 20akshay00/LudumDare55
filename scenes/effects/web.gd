@@ -17,6 +17,7 @@ func remove(pos: Vector2) -> void:
 		tween.tween_method(update_web_start, get_point_position(0),  get_point_position(1), 1)
 	else: 
 		tween.tween_method(update_web_end, get_point_position(1),  get_point_position(0), 1)
+	tween.tween_callback(func(): Events.web_anim_complete.emit())
 	tween.tween_callback(queue_free)
 			
 func update_web_start(new_pos) -> void:
