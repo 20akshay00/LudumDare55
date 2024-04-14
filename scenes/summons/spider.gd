@@ -58,34 +58,22 @@ func look_for_partner():
 		return null
 	
 func update_web() -> void:
-	if partner:
-		if is_instance_valid(web): 
-			web.queue_free()
-			
-		web = null
+	if web and is_instance_valid(web): 
+		web.remove(position)
 		partner.web = null
 		partner.partner = null
+		web = null		
 		partner = null
 		
 	partner = look_for_partner()
+	
 	if partner:
 		if partner.direction.dot(direction) == -1: 
 			web = web_scene.instantiate()
-			web.add_point(position)
-			web.add_point(position)
-		
-			web.tween = get_tree().create_tween()	
-			web.tween.tween_method(update_web_end, position, partner.position, 1)
-			
 			add_sibling(web)
 			get_parent().move_child(web, 0)
+			web.create(position, partner.position)
 			
 			partner.partner = self
 			partner.web = web
 		
-func update_web_start(new_pos) -> void:
-	web.set_point_position(0, new_pos)
-	
-func update_web_end(new_pos) -> void:
-	web.set_point_position(1, new_pos)
-

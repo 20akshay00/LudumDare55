@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://scenes/effects/web.gd" id="1_vpfww"]
 
 [node name="Web" type="Line2D"]
+width = 4.0
 script = ExtResource("1_vpfww")
