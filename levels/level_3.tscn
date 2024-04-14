@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://birmw8gaa6mya"]
+[gd_scene load_steps=18 format=3 uid="uid://birmw8gaa6mya"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_a20h7"]
 [ext_resource type="Script" path="res://scenes/game_manager.gd" id="2_8gi4p"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://um0iugdbx8gh" path="res://scenes/ui/slot.tscn" id="8_qdbux"]
 [ext_resource type="PackedScene" uid="uid://bg58e6gnlycqq" path="res://scenes/effects/breakable_wall.tscn" id="8_ui21r"]
 [ext_resource type="PackedScene" uid="uid://byptc332kp3tg" path="res://scenes/effects/axe.tscn" id="9_27dd1"]
+[ext_resource type="Texture2D" uid="uid://dhtmte4w76vgu" path="res://assets/art/effects/reset_button.png" id="12_nxmkb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rxycu"]
 texture = ExtResource("5_6ukvk")
@@ -145,6 +146,22 @@ grow_vertical = 2
 summon_name = "skeleton"
 quantity = 0
 
+[node name="Button" type="Button" parent="BattleUI"]
+anchors_preset = -1
+anchor_top = 0.91
+anchor_right = 0.052
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.19995
+offset_right = -0.840004
+offset_bottom = -3.0
+focus_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="BattleUI/Button"]
+position = Vector2(47.9375, 49.0485)
+scale = Vector2(0.441901, 0.441901)
+texture = ExtResource("12_nxmkb")
+
 [node name="FinishArea" type="Area2D" parent="."]
 position = Vector2(627, -45)
 collision_layer = 4
@@ -154,3 +171,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishArea"]
 position = Vector2(10, -5)
 shape = SubResource("RectangleShape2D_y0nfu")
+
+[connection signal="pressed" from="BattleUI/Button" to="GameManager" method="_on_button_pressed"]
+[connection signal="body_entered" from="FinishArea" to="GameManager" method="_on_finish_area_body_entered"]
