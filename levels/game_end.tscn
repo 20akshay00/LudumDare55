@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://j4c02j3fva2e"]
+
+[ext_resource type="Texture2D" uid="uid://closmn1vkomgl" path="res://assets/art/levels/end-screen.jpg" id="1_prdip"]
+[ext_resource type="Script" path="res://levels/game_end.gd" id="1_vdk6b"]
+[ext_resource type="PackedScene" uid="uid://c1hf0yvk7tkmj" path="res://levels/game_start.tscn" id="2_p8tl7"]
+[ext_resource type="Texture2D" uid="uid://dhtmte4w76vgu" path="res://assets/art/effects/reset_button.png" id="4_b4yov"]
+
+[node name="GameEnd" type="Node"]
+script = ExtResource("1_vdk6b")
+start_screen = ExtResource("2_p8tl7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_prdip")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.024
+anchor_top = 0.866
+anchor_right = 0.076
+anchor_bottom = 0.952
+offset_left = 0.919998
+offset_top = -0.28009
+offset_right = -0.920013
+offset_bottom = -0.160034
+focus_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Button"]
+position = Vector2(49, 45)
+scale = Vector2(0.441901, 0.441901)
+texture = ExtResource("4_b4yov")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

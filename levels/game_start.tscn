@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1hf0yvk7tkmj"]
+
+[ext_resource type="Texture2D" uid="uid://dlyrn0bqvqtg0" path="res://assets/art/levels/Start Game.jpg" id="1_8xylm"]
+[ext_resource type="Script" path="res://levels/start_button.gd" id="2_w8tnn"]
+[ext_resource type="PackedScene" uid="uid://cwjy1qpambgri" path="res://levels/level_1.tscn" id="3_jpxgp"]
+
+[node name="GameStart" type="Node"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_8xylm")
+
+[node name="StartButton" type="Area2D" parent="."]
+script = ExtResource("2_w8tnn")
+first_level = ExtResource("3_jpxgp")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StartButton"]
+polygon = PackedVector2Array(1192, 322, 1610, 220, 1670, 233, 1692, 283, 1674, 356, 1321, 476, 1125, 491, 1244, 384, 1173, 384)
