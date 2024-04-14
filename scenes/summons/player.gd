@@ -15,7 +15,7 @@ func on_death() -> void:
 	tween.tween_callback(func(): Events.game_over.emit())
 
 func on_fall() -> void:
-	$CollisionShape2D.queue_free()
+	if $CollisionShape2D: $CollisionShape2D.queue_free()
 	
 	AudioManager.play_effect(sound_death, 0)
 	var tween = get_tree().create_tween()
