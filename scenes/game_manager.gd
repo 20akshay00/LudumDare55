@@ -50,14 +50,21 @@ func _input(event: InputEvent) -> void:
 		dir = Vector2(-1, 0)
 		
 	if (abs(dir.x) == 1 or abs(dir.y) == 1) and player_can_move:
-		player_can_move = false
 		#arena.can_player_move()
 		arena.set_unoccupied(player_tile)
-		player_tile += Vector2i(dir.x, dir.y)
-		arena.set_occupied(player_tile, player)
-		
-		var tween = get_tree().create_tween()
-		
-		tween.tween_property(player, "position", arena.map_to_local(player_tile), 0.5).set_ease(Tween.EASE_IN_OUT)
-		tween.tween_callback(func(): player_can_move = true)
+		var new_tile = player_tile + Vector2i(dir.x, dir.y)
+
+		if arena.is_valid_player_move(new_tile):
+			player_tile = new_tile
+			arena.set_occupied(player_tile, player)
+			
+			player_can_move = false
+			var tween = get_tree().create_tween()
+			tween.tween_property(player, "position", arena.map_to_local(player_tile), 0.5).set_ease(Tween.EASE_IN_OUT)
+			if arena.is_chasm_drop(player_tile):
+				tween.tween_callback(player.on_fall)
+			else:
+				tween.tween_callback(func(): player_can_move = true)
+
+
 
