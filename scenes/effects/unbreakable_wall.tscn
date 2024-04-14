@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://snecanra888h"]
+
+[ext_resource type="Texture2D" uid="uid://bmt0j2ljj0mio" path="res://assets/art/effects/solid-wall.png" id="1_srhtg"]
+[ext_resource type="PackedScene" path="res://scenes/effects/death_effect.tscn" id="3_3072x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt8io"]
+size = Vector2(80, 80)
+
+[node name="UnbreakableWall" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.72853e-06, -1.01328e-06)
+scale = Vector2(0.969072, 0.969072)
+texture = ExtResource("1_srhtg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tt8io")
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("3_3072x")]

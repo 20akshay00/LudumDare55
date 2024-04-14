@@ -1,0 +1,2 @@
+class_name Unbreakable
+extends StaticBody2D

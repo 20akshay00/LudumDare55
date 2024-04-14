@@ -34,3 +34,4 @@ func on_death() -> void:
 	tween.tween_callback(queue_free)
 		
 	Events.token_removed.emit(global_position)
+

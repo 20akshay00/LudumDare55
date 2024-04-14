@@ -1,7 +1,7 @@
 class_name Breakable
 extends StaticBody2D
 
-@export var health = 2
+@export var health = 1
 
 func break_self() -> void:
 	health -= 1
