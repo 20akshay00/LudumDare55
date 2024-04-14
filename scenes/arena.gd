@@ -37,10 +37,13 @@ func set_unoccupied(tile: Vector2i) -> void:
 	grid[tile]["object"] = null
 	player_grid[tile]["is_wall"] = false
 
-func is_valid_placement(tile: Vector2i) -> bool:
+func is_valid_placement(tile: Vector2i, summon_name = "default") -> bool:
 	if is_cell_out_of_bounds(tile):
 		return false
-	return grid[tile]["can_place"] and (grid[tile]["object"] == null)
+	if summon_name != "elemental":
+		return grid[tile]["can_place"] and (grid[tile]["object"] == null)
+	else:
+		return get_cell_source_id(0, tile) != 1
 		
 func is_cell_out_of_bounds(tile: Vector2i) -> bool:
 	return not get_cell_tile_data(0, tile)

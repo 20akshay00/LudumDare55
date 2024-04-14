@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cwjy1qpambgri"]
+[gd_scene load_steps=18 format=3 uid="uid://cwjy1qpambgri"]
 
 [ext_resource type="Script" path="res://scenes/game_manager.gd" id="1_33qa2"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_tsw8h"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://um0iugdbx8gh" path="res://scenes/ui/slot.tscn" id="7_3evan"]
 [ext_resource type="PackedScene" uid="uid://pankmv5l5j61" path="res://scenes/summons/dragon.tscn" id="8_nqkgg"]
 [ext_resource type="Texture2D" uid="uid://dhtmte4w76vgu" path="res://assets/art/effects/reset_button.png" id="12_hlh55"]
+[ext_resource type="PackedScene" uid="uid://byptc332kp3tg" path="res://scenes/effects/axe.tscn" id="12_kd4i5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rxycu"]
 texture = ExtResource("4_8sfic")
@@ -149,6 +150,9 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishArea"]
 position = Vector2(10, -5)
 shape = SubResource("RectangleShape2D_2gks5")
+
+[node name="Axe" parent="." instance=ExtResource("12_kd4i5")]
+position = Vector2(453, 252)
 
 [connection signal="pressed" from="BattleUI/Button" to="GameManager" method="_on_button_pressed"]
 [connection signal="body_entered" from="FinishArea" to="GameManager" method="_on_finish_area_body_entered"]

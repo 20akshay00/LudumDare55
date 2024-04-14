@@ -26,12 +26,10 @@ func _ready() -> void:
 	player.z_index = 2
 	player.position = arena.map_to_local(player_tile)
 	
-	
-	
 func _on_card_played(pos: Vector2, creature_scene: PackedScene, slot: Slot):
 	var creature = creature_scene.instantiate()
 	var tile = arena.local_to_map(arena.to_local(pos))
-	if arena.is_valid_placement(tile):
+	if arena.is_valid_placement(tile, creature.summon_name):
 		AudioManager.play_effect(sound_place, -2)
 		arena.add_child(creature)
 		creature.position = arena.map_to_local(tile)

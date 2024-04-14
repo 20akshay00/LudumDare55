@@ -29,6 +29,7 @@ shape = SubResource("CircleShape2D_cv58r")
 shape = SubResource("CircleShape2D_emt5m")
 
 [node name="Arrow" type="Node2D" parent="."]
+visible = false
 rotation = -1.5708
 
 [node name="ArrowSprite" type="Sprite2D" parent="Arrow"]
