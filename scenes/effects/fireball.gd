@@ -31,6 +31,9 @@ func _process(_delta: float) -> void:
 					body.on_death()
 		elif body is Player:
 			body.on_death()
+		elif body.has_method("break_self"): # breakable walls
+			body.break_self()
+			queue_free()
 		else:
 			on_death()
 

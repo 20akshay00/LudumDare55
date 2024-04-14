@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cwjy1qpambgri"]
+[gd_scene load_steps=15 format=3 uid="uid://cwjy1qpambgri"]
 
 [ext_resource type="Script" path="res://scenes/game_manager.gd" id="1_33qa2"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_tsw8h"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://drse1ry2j6dut" path="res://assets/art/tile_chasm.png" id="6_mghee"]
 [ext_resource type="PackedScene" uid="uid://um0iugdbx8gh" path="res://scenes/ui/slot.tscn" id="7_3evan"]
 [ext_resource type="PackedScene" uid="uid://pankmv5l5j61" path="res://scenes/summons/dragon.tscn" id="8_nqkgg"]
+[ext_resource type="PackedScene" uid="uid://bg58e6gnlycqq" path="res://scenes/effects/breakable_wall.tscn" id="10_whu86"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rxycu"]
 texture = ExtResource("4_8sfic")
@@ -117,3 +118,6 @@ offset_bottom = -59.0
 grow_horizontal = 2
 grow_vertical = 2
 summon_name = "spider"
+
+[node name="BreakableWall" parent="." instance=ExtResource("10_whu86")]
+position = Vector2(640, 342)

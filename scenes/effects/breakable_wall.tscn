@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg58e6gnlycqq"]
+
+[ext_resource type="Texture2D" uid="uid://ww33jps55qea" path="res://icon.svg" id="1_oedws"]
+[ext_resource type="Script" path="res://scenes/effects/breakable_wall.gd" id="1_vym6r"]
+[ext_resource type="PackedScene" path="res://scenes/effects/death_effect.tscn" id="3_m7v12"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt8io"]
+size = Vector2(98, 98)
+
+[node name="BreakableWall" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_vym6r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, -4.76837e-07)
+scale = Vector2(0.78125, 0.78125)
+texture = ExtResource("1_oedws")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tt8io")
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("3_m7v12")]
