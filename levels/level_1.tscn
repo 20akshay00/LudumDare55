@@ -152,7 +152,7 @@ position = Vector2(10, -5)
 shape = SubResource("RectangleShape2D_2gks5")
 
 [node name="Axe" parent="." instance=ExtResource("12_kd4i5")]
-position = Vector2(453, 252)
+position = Vector2(268, 236)
 
 [connection signal="pressed" from="BattleUI/Button" to="GameManager" method="_on_button_pressed"]
 [connection signal="body_entered" from="FinishArea" to="GameManager" method="_on_finish_area_body_entered"]
