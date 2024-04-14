@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_63lid"]
 [ext_resource type="Script" path="res://scenes/game_manager.gd" id="2_smapo"]
-[ext_resource type="PackedScene" uid="uid://birmw8gaa6mya" path="res://levels/level_3.tscn" id="3_1rruu"]
+[ext_resource type="PackedScene" uid="uid://j4c02j3fva2e" path="res://levels/game_end.tscn" id="3_1rruu"]
 [ext_resource type="Texture2D" uid="uid://uaf0rg7kkkb0" path="res://assets/art/levels/Level6.jpg" id="4_df80b"]
 [ext_resource type="PackedScene" uid="uid://bjaekult8bagh" path="res://scenes/arena.tscn" id="5_nscah"]
 [ext_resource type="Texture2D" uid="uid://dyxjl4cq6yqg1" path="res://assets/art/tile_plain.png" id="6_xux52"]
@@ -67,7 +67,6 @@ position = Vector2(960, 540)
 texture = ExtResource("4_df80b")
 
 [node name="Arena" parent="." instance=ExtResource("5_nscah")]
-modulate = Color(1, 1, 1, 0.286275)
 scale = Vector2(1, 1)
 tile_set = SubResource("TileSet_mafs3")
 rendering_quadrant_size = 98

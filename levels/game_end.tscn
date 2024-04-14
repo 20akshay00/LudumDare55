@@ -1,13 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://j4c02j3fva2e"]
+[gd_scene load_steps=4 format=3 uid="uid://j4c02j3fva2e"]
 
 [ext_resource type="Texture2D" uid="uid://closmn1vkomgl" path="res://assets/art/levels/end-screen.jpg" id="1_prdip"]
 [ext_resource type="Script" path="res://levels/game_end.gd" id="1_vdk6b"]
-[ext_resource type="PackedScene" uid="uid://c1hf0yvk7tkmj" path="res://levels/game_start.tscn" id="2_p8tl7"]
 [ext_resource type="Texture2D" uid="uid://dhtmte4w76vgu" path="res://assets/art/effects/reset_button.png" id="4_b4yov"]
 
 [node name="GameEnd" type="Node"]
 script = ExtResource("1_vdk6b")
-start_screen = ExtResource("2_p8tl7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
