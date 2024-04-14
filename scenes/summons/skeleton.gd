@@ -17,6 +17,14 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				#sprite.flip_v = (direction.x == -1)
 				
 			elif event.is_action_pressed("right_mouse"):
-				Events.token_removed.emit(get_global_mouse_position())
+				Events.token_removed.emit(global_position)
 				slot.add_card()
 				queue_free()
+
+func on_death() -> void:
+	$CollisionShape2D.queue_free()
+	var tween = get_tree().create_tween()
+	tween.tween_property(sprite, "modulate:a", 0., 0.2)
+	Events.token_removed.emit(global_position)
+	tween.tween_callback(queue_free)
+

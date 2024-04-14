@@ -12,7 +12,13 @@ func _process(delta: float) -> void:
 		var body = collision.get_collider()
 		if "summon_name" in body:
 			if body.summon_name == "skeleton":
-				velocity = SPEED * body.direction
+				var cur_dir = velocity.normalized()
+				if cur_dir == body.direction:
+					body.on_death()
+				elif cur_dir == -body.direction:
+					queue_free()
+				else:
+					velocity = SPEED * body.direction
 		else:
 			queue_free()
 
