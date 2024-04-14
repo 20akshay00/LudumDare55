@@ -33,8 +33,18 @@ func unfreeze() -> void:
 func shoot() -> void:
 	var fireball = fireball_scene.instantiate()
 	add_sibling(fireball)
-	fireball.position = position + get_parent().tile_set.tile_size.x * direction
+	fireball.position = position + (5 + get_parent().tile_set.tile_size.x) * direction
 	fireball.launch(direction) 
 	
+func on_death() -> void:
+	$Arrow.visible = false
+	$CollisionShape2D.queue_free()
+	$GPUParticles2D.emitting = true
 	
+	var tween = get_tree().create_tween()
+	tween.parallel().tween_property(sprite, "modulate:a", 0., 0.3)
+	tween.parallel().tween_property($GPUParticles2D, "modulate:a", 0., 0.7)	
+	tween.tween_callback(queue_free)
+		
+	Events.token_removed.emit(global_position)
 	

@@ -13,13 +13,14 @@ func _process(_delta: float) -> void:
 		if "summon_name" in body:
 			if body.summon_name == "skeleton":
 				var cur_dir = velocity.normalized()
-				print(cur_dir.dot(body.direction))
 				if cur_dir.dot(body.direction) == 1:
 					body.on_death()
 				elif cur_dir.dot(body.direction) == -1:
 					on_death()
 				else:
 					velocity = SPEED * body.direction
+			else:
+				body.on_death()
 		else:
 			on_death()
 
