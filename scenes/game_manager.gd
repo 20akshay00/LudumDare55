@@ -26,6 +26,8 @@ func _ready() -> void:
 	player.z_index = 2
 	player.position = arena.map_to_local(player_tile)
 	
+	
+	
 func _on_card_played(pos: Vector2, creature_scene: PackedScene, slot: Slot):
 	var creature = creature_scene.instantiate()
 	var tile = arena.local_to_map(arena.to_local(pos))
@@ -115,3 +117,7 @@ func _on_finish_area_body_entered(body: Node2D) -> void:
 
 func _on_wall_broken(pos: Vector2) -> void:
 	arena.set_unoccupied(arena.local_to_map(pos))
+
+
+func _on_button_pressed() -> void:
+	TransitionManager.reload_scene()
