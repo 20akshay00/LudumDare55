@@ -3,6 +3,7 @@ extends Node
 @export var arena: TileMap
 @export var player_tile := Vector2i(6, 10)
 @export var player_can_move := true
+@export var next_level: PackedScene
 
 @onready var sound_place = preload("res://assets/audio/LD55 Card Place.wav")
 @onready var sound_place_fail = preload("res://assets/audio/LD55 Placement Blocked.wav")
@@ -18,6 +19,7 @@ func _ready() -> void:
 	Events.web_created.connect(_on_web_created)
 	Events.web_removed.connect(_on_web_removed)
 	Events.web_anim_complete.connect(_on_web_anim_complete)
+	Events.wall_broken.connect(_on_wall_broken)
 	
 	player = player_scene.instantiate()
 	arena.add_child(player)
@@ -105,3 +107,11 @@ func _on_web_removed(pos1: Vector2, pos2: Vector2):
 func _on_web_anim_complete() -> void:	
 	if arena.is_chasm_drop(player_tile):
 		player.on_fall()
+
+
+func _on_finish_area_body_entered(body: Node2D) -> void:
+	if body is Player:
+		TransitionManager.change_scene(next_level)
+
+func _on_wall_broken(pos: Vector2) -> void:
+	arena.set_unoccupied(arena.local_to_map(pos))

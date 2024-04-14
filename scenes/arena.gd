@@ -6,16 +6,16 @@ var player_grid = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for x in _gridsize.x:
-		for y in _gridsize.y:
+	for x in range(-1, _gridsize.x):
+		for y in range(-1, _gridsize.y):
 			var cell_type = get_cell_source_id(0, Vector2i(x, y))
 			grid[Vector2i(x, y)] = {
 				"can_place": not bool(cell_type),
 				"object": null, 
 			}
 			
-	for x in _gridsize.x:
-		for y in _gridsize.y:
+	for x in range(-1, _gridsize.x):
+		for y in range(-1, _gridsize.y):
 			var cell_type = get_cell_source_id(0, Vector2i(x, y))
 			player_grid[Vector2i(x, y)] = {
 				"is_wall": cell_type == 1,
@@ -23,6 +23,11 @@ func _ready() -> void:
 				"web": false
 			}
 			
+	for child in get_children():
+		var tile = local_to_map(child.position)
+		grid[tile]["object"] = child
+		player_grid[tile]["is_wall"] = true
+		
 	self_modulate.a = 0
 
 func set_occupied(tile: Vector2i, object: Node) -> void:
@@ -30,6 +35,7 @@ func set_occupied(tile: Vector2i, object: Node) -> void:
 	
 func set_unoccupied(tile: Vector2i) -> void:
 	grid[tile]["object"] = null
+	player_grid[tile]["is_wall"] = false
 
 func is_valid_placement(tile: Vector2i) -> bool:
 	if is_cell_out_of_bounds(tile):

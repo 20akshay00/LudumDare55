@@ -1,3 +1,4 @@
+class_name Breakable
 extends StaticBody2D
 
 @export var health = 2
@@ -5,6 +6,7 @@ extends StaticBody2D
 func break_self() -> void:
 	health -= 1
 	if health == 0:
+		Events.wall_broken.emit(position)
 		$CollisionShape2D.queue_free()
 		$GPUParticles2D.emitting = true
 		

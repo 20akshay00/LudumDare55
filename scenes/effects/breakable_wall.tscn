@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bg58e6gnlycqq"]
 
-[ext_resource type="Texture2D" uid="uid://ww33jps55qea" path="res://icon.svg" id="1_oedws"]
 [ext_resource type="Script" path="res://scenes/effects/breakable_wall.gd" id="1_vym6r"]
+[ext_resource type="Texture2D" uid="uid://cq4o07uwtc04p" path="res://assets/art/effects/breakable-wall.png" id="2_876u8"]
 [ext_resource type="PackedScene" path="res://scenes/effects/death_effect.tscn" id="3_m7v12"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tt8io"]
@@ -13,9 +13,9 @@ collision_mask = 4
 script = ExtResource("1_vym6r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4.76837e-07, -4.76837e-07)
-scale = Vector2(0.78125, 0.78125)
-texture = ExtResource("1_oedws")
+position = Vector2(-1.72853e-06, -1.01328e-06)
+scale = Vector2(0.969072, 0.969072)
+texture = ExtResource("2_876u8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_tt8io")
