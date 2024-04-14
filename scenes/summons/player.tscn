@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd8vl5cht02ae"]
+[gd_scene load_steps=5 format=3 uid="uid://dd8vl5cht02ae"]
 
+[ext_resource type="Script" path="res://scenes/summons/player.gd" id="1_jvyj0"]
 [ext_resource type="Texture2D" uid="uid://bb5u70nqihx4i" path="res://assets/art/tokens/player.png" id="1_nyi3g"]
+[ext_resource type="PackedScene" path="res://scenes/effects/death_effect.tscn" id="3_gyt68"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m1j72"]
 radius = 25.0
 height = 70.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_jvyj0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -44)
@@ -15,3 +20,5 @@ texture = ExtResource("1_nyi3g")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -9)
 shape = SubResource("CapsuleShape2D_m1j72")
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("3_gyt68")]

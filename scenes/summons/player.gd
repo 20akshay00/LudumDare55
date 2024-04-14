@@ -1,10 +1,14 @@
 class_name Player
 extends CharacterBody2D
 
-const SPEED = 300.0
+@onready var sound_death = preload("res://assets/audio/LD55 Death.wav")
 
-func _process(delta: float) -> void:
-	var dir = Input.get_vector("left", "right", "up", "down")
-	velocity = SPEED * dir
-	move_and_slide()
-	pass
+func on_death() -> void:
+	$CollisionShape2D.queue_free()
+	$GPUParticles2D.emitting = true
+	
+	AudioManager.play_effect(sound_death, 0)
+	var tween = get_tree().create_tween()
+	tween.parallel().tween_property($Sprite2D, "modulate:a", 0., 0.3)
+	tween.parallel().tween_property($GPUParticles2D, "modulate:a", 0., 0.7)	
+	tween.tween_callback(queue_free)

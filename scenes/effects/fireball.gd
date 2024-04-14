@@ -29,6 +29,8 @@ func _process(_delta: float) -> void:
 			else:
 				if velocity.dot(tile_fireball - tile_body) != 0:
 					body.on_death()
+		elif body is Player:
+			body.on_death()
 		else:
 			on_death()
 
