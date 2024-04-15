@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://pnocboel5fud" path="res://assets/art/fonts/baddie.otf" id="4_5mw44"]
 
 [node name="HelpPopup" type="Control"]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchor_right = 0.655

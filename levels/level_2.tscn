@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c0v6uhsaoiep"]
+[gd_scene load_steps=18 format=3 uid="uid://c0v6uhsaoiep"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_fi8n2"]
 [ext_resource type="Script" path="res://scenes/game_manager.gd" id="2_lr876"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://um0iugdbx8gh" path="res://scenes/ui/slot.tscn" id="8_m52nf"]
 [ext_resource type="PackedScene" uid="uid://byptc332kp3tg" path="res://scenes/effects/axe.tscn" id="9_rk5w1"]
 [ext_resource type="Texture2D" uid="uid://dhtmte4w76vgu" path="res://assets/art/effects/reset_button.png" id="11_gyqjr"]
+[ext_resource type="Texture2D" uid="uid://cn0k1skp45xxm" path="res://assets/art/effects/HelpButton.png" id="11_vq2ab"]
+[ext_resource type="PackedScene" uid="uid://dx5wnr7tm1urf" path="res://scenes/effects/HelpPopup.tscn" id="12_paigt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rxycu"]
 texture = ExtResource("5_6ffld")
@@ -132,21 +134,36 @@ grow_vertical = 2
 summon_name = "skeleton"
 quantity = 0
 
-[node name="Button" type="Button" parent="BattleUI"]
+[node name="Button" type="TextureButton" parent="BattleUI"]
 anchors_preset = -1
 anchor_top = 0.91
 anchor_right = 0.052
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 1.19995
-offset_right = -0.840004
-offset_bottom = -3.0
+offset_left = -2.0
+offset_top = -11.8
+offset_right = 111.16
+offset_bottom = 110.0
+scale = Vector2(0.5, 0.5)
 focus_mode = 0
+texture_normal = ExtResource("11_gyqjr")
+texture_pressed = ExtResource("11_gyqjr")
+texture_hover = ExtResource("11_gyqjr")
 
-[node name="Sprite2D" type="Sprite2D" parent="BattleUI/Button"]
-position = Vector2(47.9375, 49.0485)
-scale = Vector2(0.441901, 0.441901)
-texture = ExtResource("11_gyqjr")
+[node name="HelpButton" type="TextureButton" parent="BattleUI"]
+anchors_preset = -1
+anchor_left = 0.612
+anchor_top = 0.91
+anchor_right = 0.662
+anchor_bottom = 0.997
+offset_left = -6.04004
+offset_top = -13.8
+offset_right = 78.9598
+offset_bottom = 80.24
+scale = Vector2(0.6, 0.6)
+focus_mode = 0
+texture_normal = ExtResource("11_vq2ab")
+texture_pressed = ExtResource("11_vq2ab")
+texture_hover = ExtResource("11_vq2ab")
 
 [node name="FinishArea" type="Area2D" parent="."]
 position = Vector2(627, -45)
@@ -158,5 +175,9 @@ metadata/_edit_group_ = true
 position = Vector2(10, -5)
 shape = SubResource("RectangleShape2D_y0nfu")
 
+[node name="HelpPopup" parent="." instance=ExtResource("12_paigt")]
+text = "\"Turn up the freeze to halt the slice, icy ally makes danger nice.\""
+
 [connection signal="pressed" from="BattleUI/Button" to="GameManager" method="_on_button_pressed"]
+[connection signal="pressed" from="BattleUI/HelpButton" to="." method="_on_help_button_pressed"]
 [connection signal="body_entered" from="FinishArea" to="GameManager" method="_on_finish_area_body_entered"]

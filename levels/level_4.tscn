@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c1jp0hlgkso3q"]
+[gd_scene load_steps=19 format=3 uid="uid://c1jp0hlgkso3q"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_vkvaf"]
 [ext_resource type="Script" path="res://scenes/game_manager.gd" id="2_o11kp"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://um0iugdbx8gh" path="res://scenes/ui/slot.tscn" id="10_dbkhf"]
 [ext_resource type="PackedScene" uid="uid://bg58e6gnlycqq" path="res://scenes/effects/breakable_wall.tscn" id="10_vyim1"]
 [ext_resource type="Texture2D" uid="uid://dhtmte4w76vgu" path="res://assets/art/effects/reset_button.png" id="12_d5oex"]
+[ext_resource type="Texture2D" uid="uid://cn0k1skp45xxm" path="res://assets/art/effects/HelpButton.png" id="12_lb46g"]
+[ext_resource type="PackedScene" uid="uid://dx5wnr7tm1urf" path="res://scenes/effects/HelpPopup.tscn" id="12_mg7ng"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rxycu"]
 texture = ExtResource("6_fi8ep")
@@ -148,21 +150,36 @@ grow_vertical = 2
 summon_name = "skeleton"
 quantity = 1
 
-[node name="Button" type="Button" parent="BattleUI"]
+[node name="Button" type="TextureButton" parent="BattleUI"]
 anchors_preset = -1
 anchor_top = 0.91
 anchor_right = 0.052
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 1.19995
-offset_right = -0.840004
-offset_bottom = -3.0
+offset_left = -2.0
+offset_top = -11.8
+offset_right = 111.16
+offset_bottom = 110.0
+scale = Vector2(0.5, 0.5)
 focus_mode = 0
+texture_normal = ExtResource("12_d5oex")
+texture_pressed = ExtResource("12_d5oex")
+texture_hover = ExtResource("12_d5oex")
 
-[node name="Sprite2D" type="Sprite2D" parent="BattleUI/Button"]
-position = Vector2(47.9375, 49.0485)
-scale = Vector2(0.441901, 0.441901)
-texture = ExtResource("12_d5oex")
+[node name="HelpButton" type="TextureButton" parent="BattleUI"]
+anchors_preset = -1
+anchor_left = 0.612
+anchor_top = 0.91
+anchor_right = 0.662
+anchor_bottom = 0.997
+offset_left = -6.04004
+offset_top = -13.8
+offset_right = 78.9598
+offset_bottom = 80.24
+scale = Vector2(0.6, 0.6)
+focus_mode = 0
+texture_normal = ExtResource("12_lb46g")
+texture_pressed = ExtResource("12_lb46g")
+texture_hover = ExtResource("12_lb46g")
 
 [node name="FinishArea" type="Area2D" parent="."]
 position = Vector2(627, -45)
@@ -174,5 +191,9 @@ metadata/_edit_group_ = true
 position = Vector2(10, -5)
 shape = SubResource("RectangleShape2D_y0nfu")
 
+[node name="HelpPopup" parent="." instance=ExtResource("12_mg7ng")]
+text = "\"Armored bones, axes groan, shield held high, dangers disown.\""
+
 [connection signal="pressed" from="BattleUI/Button" to="GameManager" method="_on_button_pressed"]
+[connection signal="pressed" from="BattleUI/HelpButton" to="." method="_on_help_button_pressed"]
 [connection signal="body_entered" from="FinishArea" to="GameManager" method="_on_finish_area_body_entered"]

@@ -169,12 +169,11 @@ position = Vector2(10, -5)
 shape = SubResource("RectangleShape2D_2gks5")
 
 [node name="HelpPopup" parent="." instance=ExtResource("11_2wnqg")]
-visible = false
 text = "Welcome to the house of treasures!
 
 Prove your worth by making your way through these crumbling ruins using only your wits and arcane creatures. 
 
-\"Lonely spiders spin, but with a twin, webs link within.\"
+\"One spider's silk, a lonely tale, add another, watch obstacles pale!\"
 
 Controls: 
 - Drag and drop to summon.
