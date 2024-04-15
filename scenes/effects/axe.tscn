@@ -4,13 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://blnvyhboi5jbv" path="res://assets/art/effects/Axe.png" id="2_b4iqp"]
 [ext_resource type="Texture2D" uid="uid://rpqolwp2cer6" path="res://assets/art/effects/Frozen-Axe.png" id="3_a6ehl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ke41h"]
-size = Vector2(79.5, 80)
+[sub_resource type="CircleShape2D" id="CircleShape2D_0fu4h"]
+radius = 40.05
 
 [node name="Axe" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_y13yr")
+tile_size = 95
+SPEED = 800.0
 
 [node name="Base" type="Sprite2D" parent="."]
 position = Vector2(1.5, -1.5)
@@ -22,4 +24,4 @@ texture = ExtResource("3_a6ehl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_ke41h")
+shape = SubResource("CircleShape2D_0fu4h")
