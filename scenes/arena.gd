@@ -24,9 +24,10 @@ func _ready() -> void:
 			}
 			
 	for child in get_children():
-		var tile = local_to_map(child.position)
-		grid[tile]["object"] = child
-		player_grid[tile]["is_wall"] = true
+		if child is Breakable:
+			var tile = local_to_map(child.position)
+			grid[tile]["object"] = child
+			player_grid[tile]["is_wall"] = true
 		
 	self_modulate.a = 0
 
