@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx5wnr7tm1urf"]
+
+[ext_resource type="Script" path="res://scenes/effects/help_popup.gd" id="1_slfux"]
+[ext_resource type="Texture2D" uid="uid://lkkfxhi1ohwt" path="res://assets/art/effects/HelpPopup.png" id="2_11xxv"]
+[ext_resource type="Texture2D" uid="uid://c2d5ry5tq6lx6" path="res://assets/art/effects/close_button.png" id="3_opmgf"]
+[ext_resource type="FontFile" uid="uid://pnocboel5fud" path="res://assets/art/fonts/baddie.otf" id="4_5mw44"]
+
+[node name="HelpPopup" type="Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchor_right = 0.655
+anchor_bottom = 1.0
+offset_right = 8.3999
+script = ExtResource("1_slfux")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 131.0
+offset_top = 137.0
+offset_right = -111.0
+offset_bottom = -107.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_11xxv")
+stretch_mode = 4
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 983.0
+offset_top = 746.0
+offset_right = 1164.0
+offset_bottom = 934.0
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("3_opmgf")
+texture_pressed = ExtResource("3_opmgf")
+texture_hover = ExtResource("3_opmgf")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 203.0
+offset_top = 207.5
+offset_right = -193.0
+offset_bottom = -264.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_5mw44")
+theme_override_font_sizes/font_size = 45
+text = "Welcome to the house of treasures!
+
+Prove your worth by making your way through these crumbling ruins using only your wits and arcane creatures. 
+
+\"Lonely spiders spin, but with a twin, webs link within.\"
+
+Controls: 
+- Drag and drop to summon.
+- Click summon to change direction.
+- Move with wasd/arrow keys."
+autowrap_mode = 3
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
