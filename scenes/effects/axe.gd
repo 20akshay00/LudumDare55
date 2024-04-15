@@ -16,9 +16,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if position <= anchor - tile_size * stride:
 		velocity.x = -velocity.x
+		position.x = position.x + 2.
 	if position >= anchor + tile_size * stride:
 		velocity.x = -velocity.x
-
+		position.x = position.x - 2.
+		
 	var collision = move_and_collide(delta * velocity)
 	if collision:
 		var body = collision.get_collider()

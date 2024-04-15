@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var summon_name: String = "skeleton"
 @export var slot: Slot
-var direction := Vector2(1, 0)
+var direction := Vector2(-1, 0)
 @onready var sprite := $Sprite2D
 @onready var arrow := $Arrow
 

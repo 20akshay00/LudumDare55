@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var arrow := $Arrow
 @onready var sound_fx = preload("res://assets/audio/LD55 Freezy.wav")
 
-var direction := Vector2(1, 0)
+var direction := Vector2(-1, 0)
 
 func _ready() -> void:
 	arrow.rotation = direction.angle() - PI/2

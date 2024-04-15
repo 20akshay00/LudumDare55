@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var slot: Slot
 @export var fireball_scene: PackedScene
 
-var direction := Vector2(1, 0)
+var direction := Vector2(-1, 0)
 @onready var sprite := $Sprite2D
 @onready var arrow := $Arrow
 @onready var timer := $ShootTimer
