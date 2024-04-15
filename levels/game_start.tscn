@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1hf0yvk7tkmj"]
+[gd_scene load_steps=6 format=3 uid="uid://c1hf0yvk7tkmj"]
 
 [ext_resource type="Texture2D" uid="uid://dlyrn0bqvqtg0" path="res://assets/art/levels/Start Game.jpg" id="1_8xylm"]
 [ext_resource type="Script" path="res://levels/game_start.gd" id="1_rvhi6"]
-[ext_resource type="PackedScene" uid="uid://cwjy1qpambgri" path="res://levels/level_1.tscn" id="3_jpxgp"]
 [ext_resource type="Texture2D" uid="uid://b55h7vjt1gbp8" path="res://assets/art/levels/Credits.png" id="4_kglsw"]
 [ext_resource type="Texture2D" uid="uid://c2d5ry5tq6lx6" path="res://assets/art/effects/close_button.png" id="5_dy27x"]
 
@@ -11,7 +10,7 @@ radius = 38.1182
 
 [node name="GameStart" type="Node"]
 script = ExtResource("1_rvhi6")
-first_level = ExtResource("3_jpxgp")
+first_level = "level1"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(960, 540)

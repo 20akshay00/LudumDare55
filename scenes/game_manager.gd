@@ -3,7 +3,7 @@ extends Node
 @export var arena: TileMap
 @export var player_tile := Vector2i(6, 10)
 @export var player_can_move := true
-@export var next_level: PackedScene
+@export var next_level: String
 
 @onready var sound_place = preload("res://assets/audio/LD55 Card Place.wav")
 @onready var sound_place_fail = preload("res://assets/audio/LD55 Placement Blocked.wav")
@@ -111,7 +111,7 @@ func _on_web_anim_complete() -> void:
 
 func _on_finish_area_body_entered(body: Node2D) -> void:
 	if body is Player:
-		TransitionManager.change_scene(next_level)
+		LevelManager.load_level(next_level)
 
 func _on_wall_broken(pos: Vector2) -> void:
 	arena.set_unoccupied(arena.local_to_map(pos))

@@ -1,8 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://c0v6uhsaoiep"]
+[gd_scene load_steps=16 format=3 uid="uid://c0v6uhsaoiep"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_fi8n2"]
 [ext_resource type="Script" path="res://scenes/game_manager.gd" id="2_lr876"]
-[ext_resource type="PackedScene" uid="uid://birmw8gaa6mya" path="res://levels/level_3.tscn" id="3_3j0pl"]
 [ext_resource type="Texture2D" uid="uid://dh7c8gglwbw7j" path="res://assets/art/levels/Level2.jpg" id="3_vgbh3"]
 [ext_resource type="PackedScene" uid="uid://bjaekult8bagh" path="res://scenes/arena.tscn" id="4_dgyqg"]
 [ext_resource type="Texture2D" uid="uid://dyxjl4cq6yqg1" path="res://assets/art/tile_plain.png" id="5_6ffld"]
@@ -60,7 +59,7 @@ script = ExtResource("1_fi8n2")
 [node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("arena")]
 script = ExtResource("2_lr876")
 arena = NodePath("../Arena")
-next_level = ExtResource("3_3j0pl")
+next_level = "level3"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(960, 540)

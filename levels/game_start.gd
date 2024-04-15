@@ -1,6 +1,6 @@
 extends Node
 
-@export var first_level: PackedScene
+@export var first_level: String
 var tween: Tween = null
 
 func _ready() -> void:
@@ -31,5 +31,5 @@ func _on_close_button_input_event(_viewport: Node, event: InputEvent, _shape_idx
 
 func _on_start_button_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("left_mouse"):
-		TransitionManager.change_scene(first_level)
+		LevelManager.load_level(first_level)
 
