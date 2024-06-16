@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="LudumDare55"
-run/main_scene="res://levels/game_start.tscn"
+config/name="Summon Squad"
+run/main_scene="res://levels/level_6.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://assets/art/thumbnail.png"
 
 [autoload]
 

@@ -86,7 +86,7 @@ offset_bottom = -553.0
 grow_horizontal = 2
 grow_vertical = 2
 summon_name = "spider"
-quantity = 2
+quantity = 8
 
 [node name="Slot2" parent="BattleUI" instance=ExtResource("7_3evan")]
 anchors_preset = -1
@@ -99,7 +99,7 @@ offset_right = -41.0
 offset_bottom = -550.0
 grow_horizontal = 2
 summon_name = "elemental"
-quantity = 0
+quantity = 8
 
 [node name="Slot3" parent="BattleUI" instance=ExtResource("7_3evan")]
 anchors_preset = -1
@@ -111,7 +111,7 @@ offset_top = 555.0
 offset_right = -328.0
 offset_bottom = -56.0
 grow_horizontal = 2
-quantity = 0
+quantity = 8
 
 [node name="Slot4" parent="BattleUI" instance=ExtResource("7_3evan")]
 anchors_preset = -1
@@ -125,7 +125,7 @@ offset_bottom = -59.0
 grow_horizontal = 2
 grow_vertical = 2
 summon_name = "skeleton"
-quantity = 0
+quantity = 8
 
 [node name="Button" type="TextureButton" parent="BattleUI"]
 anchors_preset = -1
